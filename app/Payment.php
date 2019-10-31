@@ -10,8 +10,8 @@ class Payment extends Model
 
     protected $guarded = [];
 
-    public function permintaan()
+    public function permintaans()
     {
-        return $this->belongsTo(Permintaan::class);
+        return $this->hasMany(Permintaan::class);
     }
 }

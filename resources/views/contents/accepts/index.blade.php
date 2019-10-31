@@ -18,17 +18,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($permintaans as $permintaan)
+                        @foreach($permintaans as $permintaan)
                             <tr>
-                                <td>{{$permintaan->permintaan->name}}</td>
+                                <td>{{$permintaan->name}}</td>
                                 <td>{{$permintaan->categorie->name}}</td>
-                                <td>{{$permintaan->permintaan->address}}</td>
-                                <td>{{$permintaan->permintaan->problem}}</td>
-                                <td>{{$permintaan->permintaan->status}}</td>
+                                <td>{{$permintaan->address}}</td>
+                                <td>{{$permintaan->problem}}</td>
+                                <td>{{$permintaan->status}}</td>
                                 <td>
-                                    <form type="hidden" action="" method="post">
+                                    <form type="hidden" action="{{route('payment.update', ['id'=>$permintaan->id])}}" method="post">
                                         @csrf
-                                        @method('PACTH')
+                                        @method('PATCH')
                                         <input type="hidden" name="status" value="accept" id="">
                                         <button type="submit" class="btn btn-outline-info">
                                             Accpet Permintaan
@@ -36,9 +36,7 @@
                                     </form>
                                 </td>
                             </tr>
-                        @empty
-
-                        @endforelse
+                        @endforeach
 
                     </tbody>
                 </table>

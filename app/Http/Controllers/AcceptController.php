@@ -13,9 +13,9 @@ class AcceptController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Permintaan $permintaan)
     {
-        $permintaans = Payment::with('permintaan')->orderBy('request_id')->get();
+        $permintaans = Permintaan::with('payment')->where('status','on process')->simplePaginate(5);
 
         return view('contents.accepts.index', compact('permintaans'));
     }
@@ -70,9 +70,15 @@ class AcceptController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+        $permintaan = Permintaan::find($id);
+
+        $permintaan->update($request->all());
+
+        flash()->success('status permintaan telah di perbaharui');
+
+        return redirect()->back();
     }
 
     /**

@@ -6,7 +6,7 @@ Terimakasih atas permintaan yang anda ajukan silahkan lakukan pembayaran sebesar
 dan upload bukti dengan mengklik tombol di
 bawah ini !
 
-@component('mail::button', ['url' => "http://jasaserviceac.test/confirmation/payment/{$permintaan->id}"])
+@component('mail::button', ['url' => "http://jasaserviceac.test/confirmations/payment/{$permintaan->id}"])
 Button Text
 @endcomponent
 

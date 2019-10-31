@@ -15,8 +15,8 @@ class Permintaan extends Model
         return $this->belongsTo(Categorie::class);
     }
 
-    public function payments()
+    public function payment()
     {
-        return $this->hasMany(Payment::class);
-    }//
+        return $this->belongsTo(Payment::class);
+    }
 }

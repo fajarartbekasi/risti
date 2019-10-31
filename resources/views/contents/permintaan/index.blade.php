@@ -40,19 +40,29 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>John Doe</td>
-                                <td>Service Ac</td>
-                                <td>Jl. Entah Dimana Berada</td>
-                                <td>Tidak punya ac</td>
-                                <td>Selesai</td>
-                                <td>
-                                    <a href="http://" class="btn btn-outline-success">
-                                        Print Permintaan
-                                    </a>
-                                    <a href="http://" class="btn btn-outline-info">
-                                        Buat Surat Jalan
-                                    </a>
-                                </td>
+                                @foreach($permintaans as $permintaan)
+                                    <td>{{$permintaan->name}}</td>
+                                    <td>{{$permintaan->categorie->name}}</td>
+                                    <td>{{$permintaan->address}}</td>
+                                    <td>{{$permintaan->problem}}</td>
+                                    <td>{{$permintaan->status}}</td>
+                                    <td>
+                                        <form action="{{route('permintaan.update-status', ['id'=>$permintaan->id])}}" method="post">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="hidden" name="status" value="progress" id="">
+                                            <button type="submit" class="btn btn-outline-light">
+                                                progress
+                                            </button>
+                                            <a href="http://" class="btn btn-outline-success">
+                                                Print Permintaan
+                                            </a>
+                                            <a href="http://" class="btn btn-outline-info">
+                                                Buat Surat Jalan
+                                            </a>
+                                        </form>
+                                    </td>
+                                @endforeach
                             </tr>
                         </tbody>
                     </table>

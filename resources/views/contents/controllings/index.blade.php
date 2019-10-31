@@ -24,7 +24,7 @@
                                     <td>
                                         <form action="{{route('controlling.update',['id' => $permintaan->id])}}" type="hidden" method="post">
                                             @csrf
-                                            @method('PACTH')
+                                            @method('PUT')
                                             <input type="hidden" name="status" value="selesai">
                                             <button type="submit" class="btn btn-outline-danger">
                                                 Permintaan Selesai

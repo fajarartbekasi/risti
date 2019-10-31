@@ -73,7 +73,7 @@
                                 </div>
                             </div>
 
-                            <input type="hidden" name="status" value="masuk" id="">
+                            <input type="hidden" name="status" value="waitting" id="">
                             <input type="hidden" name="categorie_id" value="{{$categorie->id}}" id="">
                         </div>
 

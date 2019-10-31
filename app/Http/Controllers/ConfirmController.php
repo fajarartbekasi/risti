@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Payment;
 use App\Permintaan;
 use Illuminate\Http\Request;
 
-class ControllingController extends Controller
+class ConfirmController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,7 @@ class ControllingController extends Controller
      */
     public function index()
     {
-        $permintaans = Permintaan::where('status','progress')->get();
-
-        return view('contents.controllings.index', compact('permintaans'));
+        //
     }
 
     /**
@@ -35,9 +34,40 @@ class ControllingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Permintaan $permintaan)
     {
-        //
+        $this->validate(request(), [
+            'request_id'         =>  'required|exists:permintaans,id',
+            'berkas'             =>  'required|mimes:jpeg,png|max:10000'
+        ]);
+
+
+        $permintaan = Permintaan::where('id', $request->get('request_id'))->first();
+
+        $permintaan->update(['status' => 'on process']);
+
+        if ($request->hasFile('berkas')) {
+
+            $upload_file = $request->file('berkas');
+
+            $extension   = $upload_file->getClientOriginalName();
+
+            $filename    = md5(time() . '.' . $extension);
+
+            $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'berkas/';
+
+            $upload_file->move($destinationPath, $filename);
+        }
+
+       Permintaan::updated(['status'=>'process']);
+       Payment::create([
+            'request_id'     => $request->input('request_id'),
+            'berkas'            => $filename
+        ]);
+
+        flash()->success('Terimakasih ka atas pembayaran yang telah dilakukan  petugas kami akan segera menuju alamat anda');
+
+        return redirect()->route('pengajuan.index');
     }
 
     /**
@@ -59,7 +89,9 @@ class ControllingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $permintaan = Permintaan::find($id);
+
+        return view('customers.confirmation.edit', compact('permintaan'));
     }
 
     /**
@@ -71,12 +103,7 @@ class ControllingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $permintaan = Permintaan::find($id);
-
-        $permintaan->update($request->all());
-        flash()->success('Pekerjaan selesai');
-
-        return redirect()->back();
+        //
     }
 
     /**
