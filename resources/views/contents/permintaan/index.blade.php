@@ -4,18 +4,18 @@
     <div class="jutify-content-center">
         <div class="card border-0">
             <div class="card-body">
-                <form action="" method="post">
+                <form action="{{route('cari-report.permintaan')}}" method="GET">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Tanggal Awal</label>
-                                <input type="date" name="" class="form-control" id="">
+                                <input type="date" name="tgl_awal" class="form-control" id="">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Tanggal Akhir</label>
-                                <input type="date" name="" class="form-control" id="">
+                                <input type="date" name="tgl_akhir" class="form-control" id="">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -34,6 +34,8 @@
                                 <th>Jenis Permintaan</th>
                                 <th>Alamat</th>
                                 <th>Problem</th>
+                                <th>Tanggal Permintaan</th>
+                                <th>Jam</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -45,21 +47,17 @@
                                     <td>{{$permintaan->categorie->name}}</td>
                                     <td>{{$permintaan->address}}</td>
                                     <td>{{$permintaan->problem}}</td>
+                                    <td>{{$permintaan->request_date}}</td>
+                                    <td>{{$permintaan->time}}</td>
                                     <td>{{$permintaan->status}}</td>
                                     <td>
                                         <form action="{{route('permintaan.update-status', ['id'=>$permintaan->id])}}" method="post">
                                             @csrf
                                             @method('PUT')
                                             <input type="hidden" name="status" value="progress" id="">
-                                            <button type="submit" class="btn btn-outline-light">
+                                            <button type="submit" class="btn btn-outline-info">
                                                 progress
                                             </button>
-                                            <a href="http://" class="btn btn-outline-success">
-                                                Print Permintaan
-                                            </a>
-                                            <a href="http://" class="btn btn-outline-info">
-                                                Buat Surat Jalan
-                                            </a>
                                         </form>
                                     </td>
                                 @endforeach

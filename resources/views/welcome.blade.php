@@ -12,7 +12,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: #0d47a1;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -49,7 +49,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #ffffff;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -81,12 +81,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Jasa Service Ac
+                <img src="{{asset('logo/PT. YOSIKO INDONESIA-01.png')}}" height="80px" alt="" srcset="">
                 </div>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Tentang Kami</a>
-                    <a href="{{route('pengajuan.index')}}">Buat Permintaan</a>
+                    <a href="{{route('pengajuan.index')}}">Produk</a>
+                    <a href="{{route('pengajuan.index')}}">Hubungi Kami</a>
                 </div>
             </div>
         </div>

@@ -23,6 +23,8 @@ Route::group(['prefix'=> 'confirmations'], function(){
 
 });
 
+Route::get('/cari-report/permintaan', 'ReportController@cariReport')->name('cari-report.permintaan');
+
 Route::resource('categories', 'CategorieController');
 Route::resource('controlling', 'ControllingController');
 
@@ -32,6 +34,15 @@ Route::group(['prefix' => 'permintaan'], function(){
     route::put('update-status/{permintaan}', 'PermintaanController@update')->name('permintaan.update-status');
 });
 
+
+Route::group(['prefix'=> 'pegawai'], function(){
+    route::get('/', 'PegawaiController@index')->name('pegawai.index');
+    route::get('/create', 'PegawaiController@create')->name('pegawai.create');
+    route::post('/store', 'PegawaiController@store')->name('pegawai.store');
+    route::get('/update-profile/{user}', 'PegawaiController@edit')->name('pegawai.edit');
+    route::put('/perbarui/profile/{user}', 'PegawaiController@update')->name('pegawai.perbarui-profile.update');
+
+});
 
 
 Route::get('pengajuan', 'PengajuanController@index')->name('pengajuan.index');
