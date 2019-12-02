@@ -50,6 +50,11 @@ Route::get('pengajuan/edit/{categories}', 'PengajuanController@edit')->name('pen
 Route::post('pengajuan/store', 'PengajuanController@store')->name('pengajuan.store');
 
 
+Route::group(['prefix' => 'informasi'], function(){
+    route::get('produks', 'Informasi\ProdukController@index')->name('informasi.produks');
+    route::get('tentang-kami', 'Informasi\TentangController@index')->name('informasi.tentang-kami');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

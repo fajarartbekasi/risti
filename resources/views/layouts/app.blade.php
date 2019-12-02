@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -113,5 +114,13 @@
             </div>
         </main>
     </div>
+
+    <script>
+        $(".hover").mouseleave(
+            function () {
+                $(this).removeClass("hover");
+            }
+        );
+    </script>
 </body>
 </html>

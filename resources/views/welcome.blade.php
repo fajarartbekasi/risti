@@ -85,9 +85,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Tentang Kami</a>
-                    <a href="{{route('pengajuan.index')}}">Produk</a>
-                    <a href="{{route('pengajuan.index')}}">Hubungi Kami</a>
+                    <a href="{{route('informasi.tentang-kami')}}">Tentang Kami</a>
+                    <a href="{{route('informasi.produks')}}">Produk</a>
                 </div>
             </div>
         </div>
