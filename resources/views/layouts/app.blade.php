@@ -63,6 +63,14 @@
                                         </a>
                                     </li>
                                 @endrole
+
+                                @role('customer')
+                                    <li class="nav-item">
+                                        <a href="{{route('pengajuan.index')}}" class="nav-item text-white font-weight-bold">
+                                            Cek Produk
+                                        </a>
+                                    </li>
+                                @endrole
                             @endauth
 
                         @endif
@@ -75,11 +83,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                            <li class="nav-item">
-                                @if (Route::has('register'))
-                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                @endif
-                            </li>
+
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

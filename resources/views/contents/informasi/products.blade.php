@@ -28,9 +28,15 @@
 
                 </div>
                 <div class="d-flex justify-content-center">
-                    <a href="{{route('login')}}" class="btn btn-outline-info btn-block">
-                        Pesan sekarang
-                    </a>
+                    @guest
+                        <a href="{{route('login')}}" class="btn btn-outline-info btn-block">
+                            Pesan sekarang
+                        </a>
+                        @else
+                        <a href="{{route('login')}}" class="btn btn-outline-info btn-block">
+                            Pesan sekarang
+                        </a>
+                    @endguest
                 </div>
             </div>
         </div>
