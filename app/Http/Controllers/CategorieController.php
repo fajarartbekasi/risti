@@ -38,15 +38,17 @@ class CategorieController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'      => 'required|string|max:100',
-            'price'     => 'required',
-            'manfaat'   => 'required',
+            'name_categorie'      => 'required|string|max:100',
+            'name'                => 'required|string|max:100',
+            'price'               => 'required',
+            'manfaat'             => 'required',
         ]);
 
         $categories = Categorie::create([
-            'name'   => $request->input('name'),
-            'price'  => $request->input('price'),
-            'manfaat'=> $request->input('manfaat'),
+            'name_categorie'   => $request->input('name_categorie'),
+            'name'             => $request->input('name'),
+            'price'            => $request->input('price'),
+            'manfaat'          => $request->input('manfaat'),
         ]);
 
         $categories->save();

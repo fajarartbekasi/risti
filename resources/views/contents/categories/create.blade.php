@@ -10,6 +10,10 @@
                     @csrf
                     <div class="form-group">
                         <label for="name">Nama Categories*</label>
+                        <input type="text" name="name_categorie" class="form-control" placeholder="Nama categorie disini.....">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Title*</label>
                         <input type="text" name="name" class="form-control" placeholder="Nama categorie disini.....">
                     </div>
                     <div class="form-group">

@@ -28,15 +28,9 @@
 
                 </div>
                 <div class="d-flex justify-content-center">
-                    @guest
-                        <a href="{{route('login')}}" class="btn btn-outline-info btn-block">
-                            Pesan sekarang
-                        </a>
-                        @else
-                        <a href="{{route('login')}}" class="btn btn-outline-info btn-block">
-                            Pesan sekarang
-                        </a>
-                    @endguest
+                    <a href="{{route('filters.categorie.cuciac')}}" class="btn btn-outline-info btn-block">
+                        Pesan sekarang
+                    </a>
                 </div>
             </div>
         </div>
@@ -58,7 +52,7 @@
 
                 </div>
                 <div class="d-flex justify-content-center">
-                    <a href="{{route('login')}}" class="btn btn-outline-info btn-block">
+                    <a href="{{route('filters.categorie.bongkar-pasang-ac')}}" class="btn btn-outline-info btn-block">
                         Pesan sekarang
                     </a>
                 </div>
@@ -78,7 +72,7 @@
 
                 </div>
                 <div class="d-flex justify-content-center">
-                    <a href="{{route('login')}}" class="btn btn-outline-info btn-block">
+                    <a href="{{route('filters.categorie.reparasi')}}" class="btn btn-outline-info btn-block">
                         Pesan sekarang
                     </a>
                 </div>

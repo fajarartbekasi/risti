@@ -19,7 +19,7 @@ class CreatePermintaansTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('phone');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('problem');
             $table->integer('unit');
             $table->string('type');

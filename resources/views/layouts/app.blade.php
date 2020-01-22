@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!-- Fonts -->
@@ -66,7 +66,7 @@
 
                                 @role('customer')
                                     <li class="nav-item">
-                                        <a href="{{route('pengajuan.index')}}" class="nav-item text-white font-weight-bold">
+                                        <a href="{{route('informasi.produks')}}" class="nav-item text-white font-weight-bold">
                                             Cek Produk
                                         </a>
                                     </li>
@@ -82,6 +82,9 @@
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('customers.signup') }}">{{ __('SignUp') }}</a>
                             </li>
 
                         @else
@@ -118,6 +121,8 @@
             </div>
         </main>
     </div>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script> -->
 
     <script>
         $(".hover").mouseleave(
@@ -125,6 +130,16 @@
                 $(this).removeClass("hover");
             }
         );
+        $("#nominal1 , #nominal2 ").keyup(function() {
+            var val1 = $("#nominal1").val();
+            var val2 = $("#nominal2").val();
+            var kali = eval(val1) * eval(val2);
+
+            if ( val1 != "" && val2 != "" ) {
+                $('#total').val(kali);
+            }
+
+        });
     </script>
 </body>
 </html>

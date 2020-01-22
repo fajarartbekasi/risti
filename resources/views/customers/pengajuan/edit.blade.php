@@ -43,7 +43,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">Jumlah Unit:</label>
-                                    <input type="number" name="unit" class="form-control" value="{{old('unit')}}" id="">
+                                    <input type="number" name="unit" class="form-control" value="{{old('unit')}}" id="nominal1">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -72,7 +72,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     Rp.
-                                    <input type="number" name="nominal" class="form-control" value="{{old('nominal')}}" id="">
+                                    <input type="text" name="nominal" class="form-control" value="" id="total">
                                 </div>
                             </div>
 
@@ -84,6 +84,7 @@
                             </div>
 
                             <input type="hidden" name="status" value="waitting" id="">
+                            <input type="hidden" name="nominal2" value="{{$categorie->price}}" id="nominal2">
                             <input type="hidden" name="categorie_id" value="{{$categorie->id}}" id="">
                         </div>
 
@@ -98,4 +99,3 @@
         </div>
     </div>
 </div>
-@endsection

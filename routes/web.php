@@ -55,6 +55,15 @@ Route::group(['prefix' => 'informasi'], function(){
     route::get('tentang-kami', 'Informasi\TentangController@index')->name('informasi.tentang-kami');
 });
 
+Route::group(['prefix' => 'filters'], function(){
+    route::get('categorie/cuciac', 'FilterController@cuciac')->name('filters.categorie.cuciac');
+    route::get('categorie/bongkar-pasang-ac', 'FilterController@bongkarpasangac')->name('filters.categorie.bongkar-pasang-ac');
+    route::get('categorie/reparasi-ac', 'FilterController@reparasiac')->name('filters.categorie.reparasi');
+});
+
+Route::get('customers/signup', 'SignupController@create')->name('customers.signup');
+Route::post('customers/store','SignupController@store')->name('customers.store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
