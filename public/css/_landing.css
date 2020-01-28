@@ -11129,7 +11129,7 @@ body {
 .jumbotron {
   padding: 3rem 14rem;
   margin-bottom: 2rem;
-  background-image: url(/images/undraw_best_place_r685.png?3a838057292412f4430d09ee7907223f);
+  background: url(/../risti/public/asset/undraw_best_place_r685.png);
   border-radius: 0.3rem;
   background-size: 71%;
 }

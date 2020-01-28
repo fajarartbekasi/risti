@@ -1,5 +1,6 @@
 @component('mail::message')
-Hello ****, {{$permintaan->name}}
+Hello ****,
+{{$permintaan->name}}
 Terimakasih atas permintaan yang anda ajukan silahkan lakukan pembayaran sebesar
 <br>
 {{ $permintaan->unit * $permintaan->nominal }}
